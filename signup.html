@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create-Account </title>
+</head>
+<style>
+    .nav {
+        margin: auto;
+        border: 1px solid white;
+        display: flex;
+        height: 45px;
+        width: 1100px;
+        background-color: black;
+        color: white;
+        border-style: dashed;
+        align-items: center;
+        justify-content: center;
+        gap: 100px;
+        font-size: 26px;
+        cursor: pointer;
+    }
+
+    a {
+        color: white;
+    }
+       form{
+        margin-top: 70px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        border: 1px solid red;
+        height: 600px;
+        width: 30%;
+    }
+    label{
+        
+        margin-left: 200px;
+        font-size: 25px;
+    }
+    input{
+        padding: 12px 50px;
+    }
+    #submit{
+        margin: auto;
+        margin-top: 10px;
+        width: 250px;
+        border-radius: 10px;
+        background-color: black;
+        color: white;
+        padding: 10px 50px;
+    }
+    h2{
+        margin: auto;
+        margin-bottom: 50px;
+    }
+</style>
+
+<body>
+    <div id="login"></div>
+    <div class="nav">
+        <a href="">LOG-IN</a>
+        <a href="">SIGN-UP</a>
+        <a href="">MENU</a>
+    </div>
+    <form id="form">
+            <h2>Create-Account</h2>
+        <label for="name">Name</label><br>
+        <input id="name" type="text" placeholder="Name"><br>
+        <label for="phone">Mobile-No</label><br>
+        <input id="mobile" type="number" placeholder="Mobile-no"><br>
+        <label for="email">Email</label><br>
+        <input id="email" type="email" placeholder="email"><br>
+        <label for="pass">password</label><br>
+        <input id="pass" type="password" placeholder="password"><br>
+        <br>
+        <input id="submit" type="submit" value="SUBMIT" placeholder="SUBMIT">
+    </form>
+</body>
+</html>
+<script>
+    document.getElementById("form").addEventListener("submit",myFunc)
+    var arr =JSON.parse(localStorage.getItem("myLocal"))||[]
+
+    function myFunc (event){
+        event.preventDefault()
+        
+        myObject={
+            name:form.name.value,
+            mobile:form.mobile.value,
+            email:form.email.value,
+            pass:form.pass.value
+        }
+        arr.push(myObject)
+        localStorage.setItem("myLocal",JSON.stringify(arr))
+         var submit=document.querySelector("#submit")
+         window.location.href=("login.html")
+    }
+
+</script>

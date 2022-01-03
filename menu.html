@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MENU</title>
+    <style>
+        body>div {
+            border: 2px solid black;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        body>div>div{
+            border: 1px solid black;
+            /* height: 300px; */
+            width: 350px;
+        }
+        button {
+            background-color: black;
+            color: white;
+             padding: 10px;
+             margin-top: -30px;
+            margin-left: 30px;
+        }
+
+        img {
+
+            height: 250px;
+            width: 350px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="user"></div>
+</body>
+
+</html>
+<script>
+    let divtag = document.getElementById("user")
+
+
+    let url = `https://www.themealdb.com/api/json/v1/1/filter.php?a=Indian`
+
+    async function getUser() {
+
+        let res = await fetch(url)
+
+        let data = await res.json()
+
+        let users = data.meals
+        console.log(users)
+
+        displayItems(users)
+
+        // localStorage.setItem("get",JSON.stringify(users))
+        // console.log("data",data)
+    }
+    getUser()
+
+    function displayItems(arr) {
+
+        let mdiv = document.createElement("div")
+        arr.map(function (elem) {
+            let div = document.createElement("div")
+
+            let img = document.createElement("img")
+            img.src = elem.strMealThumb;
+
+            let name=document.createElement("p")
+            name.innerText= elem.strMeal
+
+            let price = document.createElement("p")
+            price.innerText =  Math.floor(Math.random()* 500 + 100)
+            let btn = document.createElement("button")
+            btn.innerText = "Add To Cart";
+            btn.addEventListener("click", addcart)
+
+            div.append(img,name, price, btn)
+            document.querySelector("body").append(mdiv)
+            mdiv.append(div)
+        })
+    }
+    function addcart() {
+        alert("Added Succesfully redirecting to payment page")
+        setTimeout(function(){
+            window.location.href = "payment.html"
+            alert("Payment page")
+        },5000)
+            }
+</script>

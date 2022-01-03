@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOG-IN PAGE</title>
+</head>
+<style>
+    .nav {
+        margin: auto;
+        border: 1px solid white;
+        display: flex;
+        height: 45px;
+        width: 1100px;
+        background-color: black;
+        color: white;
+        border-style: dashed;
+        align-items: center;
+        justify-content: center;
+        gap: 100px;
+        font-size: 26px;
+        cursor: pointer;
+    }
+
+    a {
+        color: white;
+    }
+    #container{
+        margin-top: 70px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        border: 1px solid red;
+        height: 550px;
+        width: 30%;
+    }
+    label{
+        
+        margin-left: 200px;
+        font-size: 25px;
+    }
+    input{
+        padding: 12px 50px;
+    }
+    button{
+        margin: auto;
+        margin-top: 10px;
+        width: 250px;
+        border-radius: 10px;
+        background-color: black;
+        color: white;
+        padding: 10px 50px;
+    }
+</style>
+
+<body>
+    <div id="login"></div>
+    <div class="nav">
+        <a href="">LOG-IN</a>
+        <a href="">SIGN-UP</a>
+        <a href="">MENU</a>
+    </div>
+    <div id="container">
+        <label for="email">Email</label><br>
+        <input id="email" type="email" placeholder="email"><br>
+        <label for="pass">password</label><br>
+        <input id="pass" type="password" placeholder="password">
+        <button onclick="button" id="button">Button</button>
+    </divid>
+</body>
+
+</html>
+<script>
+    document.getElementById("button").addEventListener("click", myFun)
+
+    var count = 0;
+    // var arr=  ;
+    function myFun() {
+        var email = document.getElementById("email").value;
+        var pass = document.getElementById("pass").value;
+
+
+        if (email == email && pass == pass) {
+            count = 1
+        }
+        if (count >= 1) {
+            alert("succesfully login")
+            window.location.href("index.html")
+        }
+        else {
+            alert("wrong Credentials")
+        }
+    }
+</script>
